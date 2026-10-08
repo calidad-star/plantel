@@ -1,0 +1,10 @@
+{
+  "name": "Plantel Francisco Ballester",
+  "short_name": "Plantel FB",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f4f6f5",
+  "theme_color": "#176b3a",
+  "lang": "es",
+  "icons": []
+}
