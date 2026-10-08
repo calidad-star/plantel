@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#176b3a">
+<link rel="manifest" href="manifest.json">
+<title>Plantel · Francisco Ballester · V3.5</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="brand"><div class="logo">FB</div><div><b>FRANCISCO BALLESTER, S.L.</b><span>Consulta de plantel · V3.5</span></div></div>
+  <button id="installBtn" hidden>Instalar</button>
+</header>
+<main>
+<section class="cards">
+  <div class="card"><small>REGISTROS</small><strong id="count">0</strong></div>
+  <div class="card"><small>VARIEDADES</small><strong id="varCount">0</strong></div>
+  <div class="card"><small>ÚLTIMA FECHA</small><strong id="lastDate">—</strong></div>
+</section>
+<section class="panel">
+  <div class="searchrow"><input id="q" placeholder="🔎 Buscar en los datos seleccionados..." autocomplete="off"></div>
+  <div class="filters">
+    <select id="tipo"><option value="">Todos los tipos</option></select>
+    <select id="semana"><option value="">Todas las semanas</option></select>
+    <select id="mes"><option value="">Todos los meses</option></select>
+    <select id="propietario"><option value="">Todos los propietarios</option></select>
+    <select id="mov"><option value="">Compra / Plantación</option></select>
+    <select id="variedad"><option value="">Todas las variedades</option></select>
+  </div>
+</section>
+<section id="list"></section>
+</main>
+<div id="modal" class="modal" hidden>
+ <div class="modalbox"><button class="close" onclick="closeModal()">×</button><h2 id="mtitle"></h2><div id="detail"></div></div>
+</div>
+<script src="data.js?v=35"></script>
+<script src="xlsx-parser.js?v=35"></script>
+<script src="app.js?v=35"></script>
+<script src="dropbox.js?v=35"></script>
+
+<section class="fb-v2-panel" aria-label="Estado y sincronización">
+  <div data-connection-status>Comprobando conexión…</div>
+  <button type="button" onclick="fbExportBackup()">💾 Copia de seguridad</button>
+  <button type="button" id="dropboxConnectBtn">☁️ Conectar Dropbox</button>
+  <button type="button" id="dropboxSyncBtn" disabled>🔄 Sincronizar</button>
+  <button type="button" id="dropboxUploadMasterBtn">📤 Subir Excel maestro</button>
+  <input type="file" id="dropboxMasterInput" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden>
+  <span id="dropboxStatus">Dropbox: no conectado</span>
+</section>
+</body>
+</html>
